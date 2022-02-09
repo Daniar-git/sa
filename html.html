@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div style="display: grid">
+        <label>Name and Surname</label>
+        <input type="text" id="names">
+    <br>
+        <label>E-mail</label>
+        <input type="text" id="mail">
+    <br>
+        <label>Password</label>
+        <input type="text" id="first">
+    <br>
+    <br>
+        <label>Repeat Password</label>
+        <input type="text" id="second">
+    <br>
+    <div id="check">
+        <button onclick="Check()" id="checs">Check</button>
+    </div>
+</div>
+<script>
+    let first = document.getElementById('first');
+    let second = document.getElementById('second');
+    let names = document.getElementById('names').value;
+    let mail = document.getElementById('mail').value;
+    let temprory= true;
+    let temprory2= false;
+    function Check(){
+        for (let i =1; i<=50 ;i++){
+            for (let k =0 ; k<=9;k++){
+                if (names.slice(i-1,i) == k.toString()){
+                    temprory = false;
+                }
+            }
+        }
+        // for (let i =1; i<=50 ;i++){
+        //     if (mail.slice(i-1,i) == "@") {
+        //         temprory = true;
+        //     }
+        // }
+        if (first.value !== second.value){
+            let p = document.createElement("p");
+            document.getElementById('check').appendChild(p);
+            p.innerHTML="Passwords are different"
+            document.getElementById('checs').remove();
+        }else if(temprory == false){
+            let p = document.createElement("p");
+            document.getElementById('check').appendChild(p);
+            p.innerHTML="You cannot have numbers in your name"
+            document.getElementById('checs').remove();
+        }
+        // else if(temprory2 ==true){
+        //     let p = document.createElement("p");
+        //     document.getElementById('check').appendChild(p);
+        //     p.innerHTML="You didnt write your email"
+        //     document.getElementById('checs').remove();
+        // }
+        else{
+            let p = document.createElement("p");
+            document.getElementById('check').appendChild(p);
+            p.innerHTML="You have succsecfully joined"
+            document.getElementById('checs').remove();
+        }
+    }
+</script>
+</body>
+</html>
